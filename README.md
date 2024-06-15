@@ -1,6 +1,6 @@
-# gas-clasp-starter
+# gas-clasp-workout-logs
 
-A starter template for Google Apps Script by [google/clasp](https://github.com/google/clasp)
+The goal in this project is to calcurate scores with daily workout logs, which has weight and count in each workout. This repository is mainly built by [howdy39/gas-clasp-starter](https://github.com/howdy39/gas-clasp-starter) template.
 
 ## Tech Stack
 
