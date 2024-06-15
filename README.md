@@ -1,7 +1,9 @@
 # gas-clasp-starter
+
 A starter template for Google Apps Script by [google/clasp](https://github.com/google/clasp)
 
 ## Tech Stack
+
 - [google/clasp](https://github.com/google/clasp)
 - [rollup](https://rollupjs.org/)
 - [TypeScript](http://www.typescriptlang.org/)
@@ -10,12 +12,15 @@ A starter template for Google Apps Script by [google/clasp](https://github.com/g
 - [Jest](https://facebook.github.io/jest/)
 
 ## Prerequisites
+
 - [Node.js](https://nodejs.org/)
 - [google/clasp](https://github.com/google/clasp)
-  - Global installation is recommended 
+  - Global installation is recommended
 
 ## Getting Started
+
 ### Clone the repository
+
 ```
 git clone --depth=1 https://github.com/howdy39/gas-clasp-starter.git <project_name>
 cd <project_name>
@@ -23,13 +28,17 @@ rm -Rf .git
 ```
 
 ### Install dependencies
+
 ```
 npm install
 ```
 
 ### Configuration
+
 #### Open `.clasp.json`, change scriptId
+
 What is scriptId ? https://github.com/google/clasp#scriptid-required
+
 ```
 {
   "scriptId": <your_script_id>,
@@ -38,6 +47,7 @@ What is scriptId ? https://github.com/google/clasp#scriptid-required
 ```
 
 #### Open `.package.json`, change properties
+
 The name, version, description, and homepage properties are output as comments at the beginning of the output GAS.
 
 ```
@@ -50,7 +60,9 @@ The name, version, description, and homepage properties are output as comments a
 ```
 
 #### Open `src/appsscript.json`, change timeZone (optional)
+
 [Apps Script Manifests](https://developers.google.com/apps-script/concepts/manifests)
+
 ```
 {
   "timeZone": "Asia/Tokyo", ## Change timeZone
@@ -60,16 +72,18 @@ The name, version, description, and homepage properties are output as comments a
 }
 ```
 
-
 ### Development and build project
+
 ```
 npm run build
 ```
 
-### Push
+### Push & Open Google Apps Script
+
 ```
 npm run push
 ```
 
 ## License
+
 This software is released under the MIT License, see LICENSE.txt.

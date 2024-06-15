@@ -1,6 +1,6 @@
 {
   "name": "workout-logs",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Batch update Google Sheets with workout logs",
   "homepage": "",
   "main": "build/index.js",
@@ -15,8 +15,8 @@
     "lint": "eslint --fix src/**/*.ts",
     "test": "jest --passWithNoTests",
     "bundle": "rollup --no-treeshake -c rollup.config.mjs",
-    "build": "npm run lint && npm run test && npm run clean && npm run bundle && cpx src/appsscript.json dist",
-    "push": "npm run build && clasp push"
+    "build": "yarn run lint && yarn run test && npm run clean && yarn run bundle && cpx src/appsscript.json dist",
+    "push": "yarn run build && clasp push && clasp open"
   },
   "engines": {
     "node": ">=18"
