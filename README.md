@@ -14,8 +14,6 @@ The goal in this project is to calcurate scores with daily workout logs, which h
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/)
-- [google/clasp](https://github.com/google/clasp)
-  - Global installation is recommended
 
 ## Getting Started
 
