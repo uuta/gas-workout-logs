@@ -81,7 +81,3 @@ npm run build
 ```
 npm run push
 ```
-
-## License
-
-This software is released under the MIT License, see LICENSE.txt.
