@@ -1,4 +1,4 @@
-import { write } from './Sheet';
+import { write } from './sheet';
 import { getObjCategoryRelations } from './categoryRelations';
 import { getObjLogs } from './workoutLogs';
 import { scoring } from './score';
