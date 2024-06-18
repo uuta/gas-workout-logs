@@ -1,4 +1,4 @@
-import { sheet } from './Sheet';
+import { sheet } from './sheet';
 import { getStatus } from './status';
 
 export function getObjLogs(): Record<string, number>[] {

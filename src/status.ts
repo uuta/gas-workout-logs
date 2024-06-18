@@ -1,4 +1,4 @@
-import { sheet } from './Sheet';
+import { sheet } from './sheet';
 
 type Status = {
   lastUpdatedAt?: string;

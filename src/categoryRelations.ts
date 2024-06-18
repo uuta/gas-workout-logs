@@ -1,4 +1,4 @@
-import { sheet } from './Sheet';
+import { sheet } from './sheet';
 import { Score, isKeyOfScore } from './score';
 
 export type ObjCategoryRelations = {
