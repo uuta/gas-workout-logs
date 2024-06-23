@@ -3,6 +3,7 @@ import { getObjCategoryRelations } from './categoryRelations';
 import { getObjLogs } from './workoutLogs';
 import { scoring } from './score';
 import { setStatus } from './status';
+import { workoutLogs } from './template/workoutLogs';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function main() {
@@ -19,4 +20,9 @@ function main() {
     }
     console.log('Failed with error %s', e);
   }
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function createTemplate() {
+  workoutLogs();
 }

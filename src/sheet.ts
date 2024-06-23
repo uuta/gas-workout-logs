@@ -34,6 +34,6 @@ export function create(name: string): Spreadsheet {
   return SpreadsheetApp.create(name);
 }
 
-// export function createSheet(id: string, names: string[]): Sheet {
-//   return spreadsheet.insertSheet(name);
-// }
+export function createSheet(sheet: Spreadsheet, name: string): Sheet {
+  return sheet.insertSheet(name);
+}
