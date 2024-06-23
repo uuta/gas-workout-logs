@@ -1,5 +1,6 @@
 import { Score } from './score';
 import Sheet = GoogleAppsScript.Spreadsheet.Sheet;
+import Spreadsheet = GoogleAppsScript.Spreadsheet.Spreadsheet;
 
 export function sheet(name: string): Sheet | null {
   const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
@@ -28,3 +29,11 @@ export function write(scores: Record<string, Score>) {
     range.setValues([scoreArr]);
   });
 }
+
+export function create(name: string): Spreadsheet {
+  return SpreadsheetApp.create(name);
+}
+
+// export function createSheet(id: string, names: string[]): Sheet {
+//   return spreadsheet.insertSheet(name);
+// }
