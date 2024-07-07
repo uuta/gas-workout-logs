@@ -1,5 +1,6 @@
 import { createForm } from '../form';
 import { addHeaders, createSheet } from '../sheet';
+import { sheet as sheetInstance } from '../sheet';
 
 type WorkoutEntities = {
   category: string;
@@ -96,13 +97,34 @@ export function workoutLogs() {
   for (const [key, value] of Object.entries(workoutTitles)) {
     entities[key] = value.youtubeUrl;
   }
+  // Create form
   const { sheet } = createForm({
     name: 'Workout logs',
     description: 'Workout form for the gym. Please fill out the form below.',
     entities,
   });
+  // Create sheets
   Object.entries(workoutSheets).forEach(([sheetName, v]) => {
     const sheetInstance = createSheet(sheet, sheetName);
     addHeaders(sheetInstance, v.headers);
   });
+  // Category relations that values are based on the workoutTitles
+  // string[][0]: category_relation_id
+  // string[][1]: name
+  // string[][2]: category_name
+  // string[][3]: count_name
+  const categoryRelations: string[][] = [];
+  Object.entries(workoutTitles).forEach(([workout, { category }], index) => {
+    categoryRelations.push([
+      String(index + 1),
+      `${workout} (weight)`,
+      category,
+      `${workout} (count)`,
+    ]);
+  });
+  const CategoryRelationsSheet = sheetInstance('category_relations');
+  if (CategoryRelationsSheet === null) {
+    throw new Error('category relations sheet not found');
+  }
+  CategoryRelationsSheet.getRange(1, 1, categoryRelations.length, 4).setValues(categoryRelations);
 }
