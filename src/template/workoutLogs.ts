@@ -1,6 +1,9 @@
 import { createForm } from '../form';
 import { addHeaders, createSheet } from '../sheet';
 
+/**
+ * Add keys and values whatever you want to use in the form
+ */
 const workoutTitles: Record<string, string> = {
   'Incline dumbbell press': '8iPEnn-ltC8&ab_channel=ScottHermanFitness',
   'Incline dumbbell fly': 'JSDpq14vCZ8&ab_channel=PureGym',
