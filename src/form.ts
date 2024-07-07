@@ -24,7 +24,7 @@ export function createForm({
     form.addTextItem().setTitle(`${title} (count)`).setRequired(false);
   });
 
-  const sheet = SpreadsheetApp.create(name + ' Responses');
+  const sheet = SpreadsheetApp.create(name);
   form.setDestination(FormApp.DestinationType.SPREADSHEET, sheet.getId());
   return { sheet, form };
 }

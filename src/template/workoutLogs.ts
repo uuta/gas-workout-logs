@@ -1,6 +1,5 @@
 import { createForm } from '../form';
 import { addHeaders, createSheet } from '../sheet';
-import { sheet as sheetInstance } from '../sheet';
 
 type WorkoutEntities = {
   category: string;
@@ -103,6 +102,10 @@ export function workoutLogs() {
     description: 'Workout form for the gym. Please fill out the form below.',
     entities,
   });
+  // Log the form URL and the sheet URL
+  Logger.log(sheet.getFormUrl());
+  Logger.log(sheet.getUrl());
+
   // Create sheets
   Object.entries(workoutSheets).forEach(([sheetName, v]) => {
     const sheetInstance = createSheet(sheet, sheetName);
@@ -122,9 +125,9 @@ export function workoutLogs() {
       `${workout} (count)`,
     ]);
   });
-  const CategoryRelationsSheet = sheetInstance('category_relations');
+  const CategoryRelationsSheet = sheet.getSheetByName('category_relations');
   if (CategoryRelationsSheet === null) {
     throw new Error('category relations sheet not found');
   }
-  CategoryRelationsSheet.getRange(1, 1, categoryRelations.length, 4).setValues(categoryRelations);
+  CategoryRelationsSheet.getRange(2, 1, categoryRelations.length, 4).setValues(categoryRelations);
 }

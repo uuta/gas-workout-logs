@@ -23,6 +23,6 @@ function main() {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function createTemplate() {
+function createWorkoutLogs() {
   workoutLogs();
 }
