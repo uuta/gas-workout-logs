@@ -37,3 +37,7 @@ export function create(name: string): Spreadsheet {
 export function createSheet(sheet: Spreadsheet, name: string): Sheet {
   return sheet.insertSheet(name);
 }
+
+export function addHeaders(sheet: Sheet, headers: string[]): void {
+  sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+}

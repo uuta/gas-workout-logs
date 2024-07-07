@@ -1,5 +1,5 @@
 import { createForm } from '../form';
-import { createSheet } from '../sheet';
+import { addHeaders, createSheet } from '../sheet';
 
 const workoutTitles: Record<string, string> = {
   'Incline dumbbell press': '8iPEnn-ltC8&ab_channel=ScottHermanFitness',
@@ -19,14 +19,33 @@ const workoutTitles: Record<string, string> = {
   'Hyght dumbbell fly': 'ADDBZPi6Up8&ab_channel=SETFORSET',
 };
 
+type SheetEntities = {
+  headers: string[];
+};
+
+const workoutSheets: Record<string, SheetEntities> = {
+  scores: {
+    headers: ['Timestamp', 'shoulder', 'chest', 'butt', 'legs', 'stomach'],
+  },
+  categories: {
+    headers: ['category_name', 'weighting'],
+  },
+  category_relations: {
+    headers: ['category_relation_id', 'name', 'category_name', 'count_name'],
+  },
+  status: {
+    headers: ['last_updated_at', 'row'],
+  },
+};
+
 export function workoutLogs() {
   const { sheet } = createForm({
     name: 'Workout logs',
     description: 'Workout form for the gym. Please fill out the form below.',
     entities: workoutTitles,
   });
-  createSheet(sheet, 'scores');
-  createSheet(sheet, 'categories');
-  createSheet(sheet, 'category_relations');
-  createSheet(sheet, 'status');
+  Object.entries(workoutSheets).forEach(([sheetName, v]) => {
+    const sheetInstance = createSheet(sheet, sheetName);
+    addHeaders(sheetInstance, v.headers);
+  });
 }
