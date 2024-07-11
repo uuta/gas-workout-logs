@@ -4,10 +4,12 @@ export function createForm({
   name,
   description,
   entities,
+  destSheet,
 }: {
   name: string;
   description: string;
   entities: Record<string, string>;
+  destSheet?: GoogleAppsScript.Spreadsheet.Spreadsheet;
 }) {
   const form = FormApp.create(name);
 
@@ -24,7 +26,8 @@ export function createForm({
     form.addTextItem().setTitle(`${title} (count)`).setRequired(false);
   });
 
-  const sheet = SpreadsheetApp.create(name);
+  const sheet = destSheet ?? SpreadsheetApp.create(name);
   form.setDestination(FormApp.DestinationType.SPREADSHEET, sheet.getId());
+
   return { sheet, form };
 }

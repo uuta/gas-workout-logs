@@ -96,12 +96,28 @@ export function workoutLogs() {
   for (const [key, value] of Object.entries(workoutTitles)) {
     entities[key] = value.youtubeUrl;
   }
-  // Create form
-  const { sheet } = createForm({
-    name: 'Workout logs',
-    description: 'Workout form for the gym. Please fill out the form below.',
-    entities,
-  });
+
+  // Get the current spreadsheet
+  let sheet = SpreadsheetApp.getActiveSpreadsheet();
+  const formName = 'Workout logs';
+
+  let form = FormApp.create(formName);
+  const existingForms = FormApp.getActiveForm();
+
+  if (existingForms) {
+    form = existingForms;
+    Logger.log('Using existing form');
+  } else {
+    // Create a form
+    const { sheet: currentSheet } = createForm({
+      name: formName,
+      description: 'Workout form for the gym. Please fill out the form below.',
+      entities,
+      destSheet: sheet,
+    });
+    sheet = currentSheet;
+  }
+
   // Log the form URL and the sheet URL
   Logger.log(sheet.getFormUrl());
   Logger.log(sheet.getUrl());
