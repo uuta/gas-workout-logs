@@ -116,17 +116,13 @@ export function workoutLogs() {
       destSheet: sheet,
     });
     sheet = currentSheet;
+
+    // Create sheets
+    Object.entries(workoutSheets).forEach(([sheetName, v]) => {
+      const sheetInstance = createSheet(sheet, sheetName);
+      addHeaders(sheetInstance, v.headers);
+    });
   }
-
-  // Log the form URL and the sheet URL
-  Logger.log(sheet.getFormUrl());
-  Logger.log(sheet.getUrl());
-
-  // Create sheets
-  Object.entries(workoutSheets).forEach(([sheetName, v]) => {
-    const sheetInstance = createSheet(sheet, sheetName);
-    addHeaders(sheetInstance, v.headers);
-  });
   // Category relations that values are based on the workoutTitles
   // string[][0]: category_relation_id
   // string[][1]: name
@@ -146,4 +142,8 @@ export function workoutLogs() {
     throw new Error('category relations sheet not found');
   }
   CategoryRelationsSheet.getRange(2, 1, categoryRelations.length, 4).setValues(categoryRelations);
+
+  // Log the form URL and the sheet URL
+  Logger.log(sheet.getFormUrl());
+  Logger.log(sheet.getUrl());
 }
