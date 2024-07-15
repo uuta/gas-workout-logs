@@ -1,4 +1,4 @@
-import { createForm } from '../form';
+import { createForm, updateForm } from '../form';
 import { addHeaders, createSheet } from '../sheet';
 
 type WorkoutEntities = {
@@ -101,12 +101,12 @@ export function workoutLogs() {
   let sheet = SpreadsheetApp.getActiveSpreadsheet();
   const formName = 'Workout logs';
 
-  let form = FormApp.create(formName);
   const existingForms = FormApp.getActiveForm();
-
   if (existingForms) {
-    form = existingForms;
-    Logger.log('Using existing form');
+    updateForm({
+      entities,
+      form: existingForms,
+    });
   } else {
     // Create a form
     const { sheet: currentSheet } = createForm({
