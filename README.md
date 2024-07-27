@@ -5,11 +5,9 @@ The goal in this project is to calcurate scores with daily workout logs, which h
 ## Tech Stack
 
 - [google/clasp](https://github.com/google/clasp)
-- [rollup](https://rollupjs.org/)
 - [TypeScript](http://www.typescriptlang.org/)
 - [ESLint](https://github.com/eslint/eslint)
 - [Prettier](https://prettier.io/)
-- [Jest](https://facebook.github.io/jest/)
 
 ## Prerequisites
 
@@ -20,15 +18,15 @@ The goal in this project is to calcurate scores with daily workout logs, which h
 ### Clone the repository
 
 ```
-git clone --depth=1 https://github.com/howdy39/gas-clasp-starter.git <project_name>
-cd <project_name>
-rm -Rf .git
+$ git clone --depth=1 https://github.com/uuta/gas-workout-logs <project_name>
+$ cd <project_name>
+$ rm -Rf .git
 ```
 
 ### Install dependencies
 
 ```
-npm install
+$ yarn install
 ```
 
 ### Configuration
@@ -42,19 +40,6 @@ What is scriptId ? https://github.com/google/clasp#scriptid-required
   "scriptId": <your_script_id>,
   "rootDir": "dist"
 }
-```
-
-#### Open `.package.json`, change properties
-
-The name, version, description, and homepage properties are output as comments at the beginning of the output GAS.
-
-```
-...
-  "name": "your application name",
-  "version": "your application version",
-  "description": "your application description",
-  "homepage" "your repository url"
-...
 ```
 
 #### Open `src/appsscript.json`, change timeZone (optional)
@@ -73,11 +58,47 @@ The name, version, description, and homepage properties are output as comments a
 ### Development and build project
 
 ```
-npm run build
+$ yarn run build
 ```
 
 ### Push & Open Google Apps Script
 
 ```
-npm run push
+$ yarn run push
 ```
+
+## How to use
+
+### 1. Open a blank Google Spreadsheet
+
+![blank spreadsheet](https://i.gyazo.com/a8a97f54dce7f30d03dbc80f1099266b.png)
+
+### 2. Open the script editor
+
+![script editor](https://i.gyazo.com/b32780121b2c108f748df9023588276a.png)
+
+### 3. Copy the script ID from the URL
+
+Copy the script ID from the URL of the script editor which is like the below.
+
+```sh
+https://script.google.com/home/projects/<scriptId>/edit
+```
+
+### 4. Build and push the project
+
+Run the following command in the project directory.
+
+```sh
+$ yarn run push
+```
+
+### 5. Run updateWorkoutLogs function
+
+![run function](https://i.gyazo.com/5308857cd8413e62ebf71309cd5d6ee4.png)
+
+### 6. Set the trigger
+
+Set the trigger to run the main function every 5 minutes. The main function can calculate the scores with the workout logs based on each weight and count.
+
+![Set the trigger](https://i.gyazo.com/d898d4a9a45b585f853192128be52f46.png)
