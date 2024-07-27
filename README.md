@@ -105,6 +105,6 @@ Set the trigger to run the main function every 5 minutes. The main function can 
 
 ### 7. Check the scores
 
-The calculated scores can be integrated with BI tools like Google Looker Studio.
+The calculated scores can be integrated with BI tools like Google Looker Studio. Check the maximum weights and daily scores
 
 ![Check the scores](https://i.gyazo.com/1f23392a7f54292dd9185d77da0036aa.png)
