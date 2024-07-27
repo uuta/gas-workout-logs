@@ -102,3 +102,9 @@ $ yarn run push
 Set the trigger to run the main function every 5 minutes. The main function can calculate the scores with the workout logs based on each weight and count.
 
 ![Set the trigger](https://i.gyazo.com/d898d4a9a45b585f853192128be52f46.png)
+
+### 7. Check the scores
+
+The calculated scores can be integrated with BI tools like Google Looker Studio.
+
+![Check the scores](https://i.gyazo.com/1f23392a7f54292dd9185d77da0036aa.png)
