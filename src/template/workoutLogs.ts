@@ -101,7 +101,12 @@ export function workoutLogs() {
   let sheet = SpreadsheetApp.getActiveSpreadsheet();
   const formName = 'Workout logs';
 
-  const existingForms = FormApp.getActiveForm();
+  let existingForms = null;
+  try {
+    existingForms = FormApp.openByUrl(sheet?.getFormUrl() ?? '');
+  } catch (e) {
+    // Ignore the error if the form doesn't exist
+  }
   if (existingForms) {
     updateForm({
       entities,

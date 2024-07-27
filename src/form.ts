@@ -27,8 +27,20 @@ export function createForm({
     Logger.log(`Added ${title} in createForm`);
   });
 
-  const sheet = destSheet ?? SpreadsheetApp.create(name);
+  let sheet: GoogleAppsScript.Spreadsheet.Spreadsheet;
+  if (destSheet) {
+    sheet = destSheet;
+  } else {
+    sheet = SpreadsheetApp.create(name);
+  }
+
   form.setDestination(FormApp.DestinationType.SPREADSHEET, sheet.getId());
+  let formResponseSheet = sheet.getSheets().find((s) => s.getFormUrl() !== null);
+  if (!formResponseSheet) {
+    formResponseSheet = sheet.insertSheet('logs');
+  } else {
+    formResponseSheet.setName('logs');
+  }
 
   return { sheet, form };
 }
