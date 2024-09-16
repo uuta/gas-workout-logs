@@ -70,9 +70,9 @@ const workoutTitles: Record<string, WorkoutEntities> = {
     youtubeUrl: 'ADDBZPi6Up8&ab_channel=SETFORSET',
     category: 'chest',
   },
-  'Kettlebell Swing': {
-    youtubeUrl: '6A0yJetx7hg&ab_channel=PureGym',
-    category: 'stomach',
+  'Kettlebell Halo': {
+    youtubeUrl: 'wJcmanVh5EE&ab_channel=OnnitAcademy',
+    category: 'shoulder',
   },
 };
 
